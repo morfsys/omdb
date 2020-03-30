@@ -9,15 +9,12 @@ es6promise.polyfill();
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
 function* fetchMovie({ payload }) {
-    // This payload contains the query searched by user
-    // Add the below line in fetch with 'payload' as a param
-    // http://www.omdbapi.com/?apikey=98aa7ccf&t=payload&
-
+    // Uncomment this
     // const json = yield fetch(
-    //     `https://api.tvmaze.com/search/shows?q=${payload}`
+    //     `http://www.omdbapi.com/?apikey=98aa7ccf&t=${payload}`
     // ).then(response => response.json());
-    // yield put({ type: actionTypes.DATA_RECEIVED, payload: json });
 
+    // Comment this static json
     const json = {
         Title: "Guardians of the Galaxy Vol. 2",
         Year: "2017",
@@ -61,7 +58,6 @@ function* fetchMovie({ payload }) {
         Website: "N/A",
         Response: "True"
     };
-    delay(1000);
     yield put({ type: actionTypes.DATA_RECEIVED, payload: json });
 }
 function* actionWatcher() {
