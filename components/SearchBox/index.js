@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import css from "./index.module.scss";
 import { connect } from "react-redux";
 import { searchMovie } from "../../actions";
 
-const SearchBox = ({ data, searchMovie }) => {
+const SearchBox = ({ searchMovie }) => {
     const [query, setQuery] = useState("");
 
     const handleQuery = e => {
@@ -19,19 +19,15 @@ const SearchBox = ({ data, searchMovie }) => {
                     className={css.search_box_input}
                     value={query}
                     onChange={e => handleQuery(e)}
-                    placeholder="Search for movie titles"
+                    placeholder="Search for movie title"
                 />
             </div>
         </div>
     );
 };
 
-const mapStateToProps = ({ data }) => ({
-    data
-});
-
 const mapDispatchToProps = {
     searchMovie
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBox);
+export default connect(null, mapDispatchToProps)(SearchBox);
