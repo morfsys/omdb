@@ -1,0 +1,38 @@
+.container {
+    width: 1170px;
+    margin: 0 auto;
+}
+.movie_wrapper {
+    display: flex;
+    margin-top: 50px;
+}
+.movie_poster {
+    margin-right: 25px;
+}
+.title {
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+.director {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+@media only screen and (max-width: 992px) {
+    .container {
+        width: 95%;
+    }
+    .movie_wrapper {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+    .movie_poster {
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,79 @@
+$greenColor: green;
+
+.movie_card {
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2),
+        0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+    max-width: 200px;
+    text-decoration: none;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #fff;
+}
+.poster_wrapper {
+    width: 200px;
+    height: 300px;
+}
+.poster_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.title {
+    padding: 10px;
+    font-weight: 500;
+    color: $greenColor;
+    box-sizing: border-box;
+}
+
+@-webkit-keyframes placeHolderShimmer {
+    0% {
+        background-position: -468px 0;
+    }
+    100% {
+        background-position: 468px 0;
+    }
+}
+
+@keyframes placeHolderShimmer {
+    0% {
+        background-position: -468px 0;
+    }
+    100% {
+        background-position: 468px 0;
+    }
+}
+.loading_image,
+.loading_text {
+    -webkit-animation-duration: 1.25s;
+    animation-duration: 1.25s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: placeHolderShimmer;
+    animation-name: placeHolderShimmer;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    background: #f6f6f6;
+    background: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        color-stop(8%, #f6f6f6),
+        color-stop(18%, #f0f0f0),
+        color-stop(33%, #f6f6f6)
+    );
+    background: linear-gradient(to right, #f6f6f6 8%, #f0f0f0 18%, #f6f6f6 33%);
+    background-size: 800px 104px;
+    height: 96px;
+    position: relative;
+}
+
+.loading_image {
+    height: 100%;
+    width: 100%;
+}
+.loading_text {
+    height: 18px;
+    border-radius: 4px;
+}
