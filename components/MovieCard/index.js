@@ -6,7 +6,7 @@ import { animated, useSpring } from "react-spring";
 
 const MovieCard = ({ data, loading }) => {
     const [isMouseEnter, toggleIsMouseEnter] = useState(false);
-
+    console.log(data);
     const { o } = useSpring({
         from: { o: 0 },
         o: isMouseEnter ? 0.7 : 0,
@@ -81,7 +81,7 @@ const MovieCard = ({ data, loading }) => {
         <>
             {loading ? (
                 <>{renderLoader()}</>
-            ) : data ? (
+            ) : data !== null ? (
                 data.Response != "False" ? (
                     <>{renderMovie()}</>
                 ) : (
