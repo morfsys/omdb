@@ -3,12 +3,8 @@ import Head from "next/head";
 import MovieCard from "../components/MovieCard";
 import SearchBox from "../components/SearchBox";
 import css from "./index.module.scss";
-import { useRouter } from "next/router";
 
 const Home = () => {
-    const router = useRouter();
-    console.log(router);
-
     return (
         <>
             <Head>

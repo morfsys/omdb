@@ -1,3 +1,5 @@
+$greenColor: #75c74e;
+
 .container {
     width: 1170px;
     margin: 0 auto;
@@ -19,10 +21,29 @@
 .title {
     margin-bottom: 10px;
     font-weight: 500;
+    font-size: 20px;
 }
 .director {
     margin-bottom: 10px;
+}
+.actors {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.actor_wrapper {
+    display: inline-block;
+}
+.actor {
+    display: inline-block;
+    margin-right: 10px;
+    border: 1px solid $greenColor;
+    padding: 5px 10px;
+    border-radius: 20px;
     font-size: 14px;
+}
+.actor_text {
+    margin-right: 10px;
 }
 .rating {
     display: flex;
@@ -41,5 +62,14 @@
     .movie_poster {
         margin-right: 0px;
         margin-bottom: 20px;
+    }
+    .actors {
+        display: block;
+    }
+    .actor_text {
+        margin-bottom: 10px;
+    }
+    .actor {
+        margin-bottom: 10px;
     }
 }

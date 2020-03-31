@@ -1,17 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import css from "./index.module.scss";
 import loaderCss from "../../components/MovieCard/index.module.scss";
 import { connect } from "react-redux";
-import { useRouter } from "next/router";
 import { searchMovie } from "../../actions";
 
-const MovieDetails = ({ data, loading, searchMovie }) => {
-    const router = useRouter();
-
-    useEffect(() => {
-        searchMovie(router.query.movie);
-    }, []);
-
+const MovieDetails = ({ data, loading }) => {
     const renderMovie = () => {
         const { Poster, Title, Director, imdbRating } = data;
         return (
@@ -22,6 +15,14 @@ const MovieDetails = ({ data, loading, searchMovie }) => {
                 <div className={css.movie_details}>
                     <div className={css.title}>{Title}</div>
                     <div className={css.director}>Directed by: {Director}</div>
+                    <div className={css.actors}>
+                        <div className={css.actor_text}>Actors:</div>
+                        {data.Actors.split(",").map(e => (
+                            <div key={e} className={css.actor_wrapper}>
+                                <div className={css.actor}>{e.trim()}</div>
+                            </div>
+                        ))}
+                    </div>
                     <div className={css.rating}>
                         <img src="/images/logo-imdb.svg" alt="IMDB" /> :{" "}
                         {imdbRating}
@@ -67,6 +68,17 @@ const MovieDetails = ({ data, loading, searchMovie }) => {
             )}
         </div>
     );
+};
+
+MovieDetails.getInitialProps = ({ ctx }) => {
+    const { store, isServer, query } = ctx;
+    if (!store.getState().data) {
+        console.log("No data in store, hydrate the store from server!");
+        store.dispatch(searchMovie(query.movie));
+    } else {
+        console.log("Data present, do not hydrate! Do nothing.");
+    }
+    return { isServer };
 };
 
 const mapStateToProps = ({ data, loading }) => ({
